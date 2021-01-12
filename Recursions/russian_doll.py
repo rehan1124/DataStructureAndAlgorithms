@@ -10,6 +10,9 @@ Recursions mostly used in:
 Divide and Conquer
 Greedy and Dynamic programming
 """
+"""
+Example-1
+"""
 
 
 def russian_doll(x):
@@ -22,3 +25,20 @@ def russian_doll(x):
 
 
 russian_doll(7)
+
+"""
+Example-2
+"""
+
+
+def recursive_method(n):
+    if n < 1:
+        print("n is less than 1...")
+    else:
+        print(n)
+        recursive_method(n - 1)  # recursion
+
+
+recursive_method(10)
+
+
