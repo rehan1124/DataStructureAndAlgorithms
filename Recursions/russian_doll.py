@@ -40,5 +40,3 @@ def recursive_method(n):
 
 
 recursive_method(10)
-
-
