@@ -45,6 +45,41 @@ class LinkedList:
         for items in data_list:
             self.insert_at_end(items)
 
+    def remove_from(self, index):
+
+        if (index < 0) or (index > self.__len__()):
+            raise Exception(f"Dude!!! What's wrong with you entering {index} index")
+
+        if index == 0:
+            self.head = self.head.next
+            return
+
+        itr = self.head
+        count = 0
+        while itr:
+            if count == index - 1:
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count += 1
+
+    def insert_at(self, index, data):
+        if (index < 0) or (index > self.__len__()):
+            raise Exception(f"Dude!!! What's wrong with you entering {index} index")
+
+        if index == 0:
+            self.insert_at_beginning(data)
+            return
+
+        itr = self.head
+        count = 0
+        while itr:
+            if count == index - 1:
+                itr.next = Node(data, itr.next)
+                break
+            itr = itr.next
+            count += 1
+
     def __str__(self):
         if self.head is None:
             return "LL is empty!!!"
@@ -89,3 +124,15 @@ if __name__ == "__main__":
     print(ll)  # Banana--->Mango--->Grapes--->Orange--->
     print("### Length of Linked List created ###")
     print(f"Length: {len(ll)}")  # 4
+    print("### Remove values at given index ###")
+    # ll.remove_from(100)  # Check for negative index or index value greater than length
+    # of LL
+    ll.remove_from(2)
+    print(ll)  # Banana--->Mango--->Orange--->
+    print("### Insert values at given index ###")
+    ll.insert_at(0, 99)
+    print(ll)  # 99--->Banana--->Mango--->Orange--->
+    ll.insert_at(3, "Rehan")
+    print(ll)
+    ll.insert_at(len(ll), "Papaya")
+    print(ll)  # 99--->Banana--->Mango--->Rehan--->Orange--->Papaya--->
